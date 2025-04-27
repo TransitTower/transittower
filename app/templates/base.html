@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Transit Tower{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/icons/favicon.svg') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}"/> <!-- Updated to global.css -->
+</head>
+
+<style>
+    /* Navigation Bar */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 48px;
+        width: 100%;
+        padding: var(--m-value);
+        background-color: rgba(255, 255, 255, 0.3);
+        z-index: 2;
+    }
+
+    .navbar-left,
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: var(--s-value);
+    }
+
+    .navbar-left {
+        width: 70%; /* Default for landscape mode */
+        justify-content: flex-start;
+    }
+
+    .navbar-right {
+        width: 30%; /* Default for landscape mode */
+        justify-content: flex-end;
+    }
+
+    .bar-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+    }
+
+    .page-title {
+        font-size: var(--l-value);
+        font-weight: bold;
+    }
+
+    .bar-button:hover,
+    .navbar a:hover {
+        background-color: var(--primary-dark);
+    }
+
+    .navbar-left .menu-btn {
+        margin-left: var(--s-value);
+    }
+
+    .navbar-right .user-btn {
+        margin-right: var(--l-value);
+    }
+
+    main {
+        overflow-y: auto;
+        min-height: calc(80vh - 80px); /* Ensure content area can expand and scroll */
+    }
+
+    /* Content Area */
+    .content {
+        /* padding: var(--m-value) var(--m-value); */
+        overflow-y: auto;
+        min-height: calc(100vh - 80px); /* Ensure content area can expand and scroll */
+    }
+
+    /* Main Content Adjustment when Sidebar is Active */
+    .content.active {
+        margin-left: 250px; /* Match sidebar width */
+        transition: margin-left 0.5s; /* Smooth transition */
+    }
+
+    /* Sidebar */
+    .sidebar {
+        height: 100%; /* Full-height */
+        width: 0; /* Start hidden */
+        position: fixed; /* Stay in place */
+        z-index: 1001; /* On top of everything */
+        top: 0;
+        left: 0;
+        overflow-x: hidden; /* Disable horizontal scroll */
+        transition: 0.5s; /* Animation time */
+        overflow-y: auto;
+    }
+
+    .sidebar::-webkit-scrollbar {
+        display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+    }
+
+    .sidebar a {
+        padding: var(--s-value);
+        text-decoration: none;
+        font-size: var(--m-value);
+        color: white;
+        background: transparent;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        background-color: #CD8032;
+        color: black;
+    }
+
+    .sidebar.active {
+        width: 250px; /* Sidebar width when active */
+    }
+
+    .footer-end-row {
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 32px;
+        align-items: center;
+        gap: var(--m-value);
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: var(--xs-value);
+    }
+
+    footer p, footer a {
+        font-size: var(--s-value);
+        color: white;
+    }
+
+    footer h1, footer h2, footer h3, footer a {
+        color: white;
+        text-decoration: none;
+        font-weight: normal;
+    }
+
+    footer h1, footer h2, footer h3 {
+        font-size: var(--m-value);
+    }
+
+    .footer-social-button {
+        padding: 0;
+        margin: 0;
+        margin-top: var(--m-value);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+    }
+</style>
+
+<body>
+<!-- Header (Navbar) -->
+<div class="navbar ui-row">
+    <!-- left side of navbar -->
+    <div class="navbar-left ui-row">
+        <!-- Menu Button -->
+        <button class="bar-button" onclick="toggleSidebar()">
+            <img src="{{ url_for('static', filename='images/icons/funcs/menu.svg') }}" alt="Menu" width="24px">
+        </button>
+
+        <!-- Vertical Divider -->
+        <div class="vertical-divider"></div>
+
+        <!-- Page Title -->
+        <div class="page-title">
+            {% block pageTitle %}{% endblock %}
+        </div>
+    </div>
+
+    <!-- right side of navbar -->
+    <div class="navbar-right ui-row">
+        <!-- Logo (links to home) -->
+        <button class="bar-button" onclick="window.location.href='/'">
+            <img src="{{ url_for('static', filename='images/icons/funcs/home.svg') }}" alt="Home" width="32px">
+        </button>
+
+        <!-- Call Button -->
+        <button class="bar-button" onclick="window.location.href='tel:+9607491500'">
+            <img src="{{ url_for('static', filename='images/icons/funcs/call.svg') }}" alt="Call" width="32px">
+        </button>
+
+        <!-- Email Button -->
+        <button class="bar-button" onclick="window.location.href='mailto:sales@transit-tower.com'"
+                style="margin-right: 32px;">
+            <img src="{{ url_for('static', filename='images/icons/funcs/email.svg') }}" alt="Email" width="32px">
+        </button>
+    </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar" style="background-color: rgba(1, 1, 1, 1);">
+    <img src="{{ url_for('static', filename='images/icons/logo_alpha_no_name.png') }}"
+         alt="Transit Tower" width="250px">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/rooms">Rooms</a>
+    <a href="/location">Location</a>
+    <a href="/activities">Activities</a>
+    <a href="/contact">Contact</a>
+    <a href="/book">Book with Us</a>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="responsive-container">
+        <!-- Footer intro section -->
+        <div class="content-column">
+            <img src="{{ url_for('static', filename='images/icons/logo_alpha.png') }}" alt="Transit Tower Full Logo"
+                 width="120px">
+            <p>Nestled in the vibrant heart of Maradhoo Feydhoo, Addu City, Maldives, our location offers stunning
+                vistas of lush island greenery, the scenic linking highway, and the endless expanse of the ocean
+                beyond.</p>
+        </div>
+
+        <!-- Footer links section -->
+        <div class="content-column">
+            <h3>Quick Links</h3>
+            <a href="/gallery">Gallery</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms & Conditions</a>
+            <a href="/faq">FAQ</a>
+        </div>
+
+        <!-- Footer contact section -->
+        <div class="content-column">
+            <h3>Contact Us</h3>
+            <a href="tel:+9606881500">Call Us</a>
+            <a href="mailto:info@transit-tower.com">Email Us</a>
+            <div class="social-links ui-row">
+                <button class="footer-social-button"
+                        onclick="window.open('https://www.facebook.com/profile.php?id=61564331481907', '_blank')">
+                    <img src="{{ url_for('static', filename='images/icons/social_media/fb_white.svg') }}" alt="Facebook"
+                         width="24px">
+                </button>
+                <button class="footer-social-button" onclick="">
+                    <img src="{{ url_for('static', filename='images/icons/social_media/ig_white.svg') }}"
+                         alt="Instagram"
+                         width="24px">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer end row -->
+    <div class="footer-end-row">
+        <p>&copy; 2024 Transit Tower. All rights reserved.</p>
+        <div class="vertical-divider"></div>
+        <p>Designed & Developed by: </p>
+        <a href="https://www.facebook.com/profile.php?id=61564331481907" target="_blank">
+            <img src="{{ url_for('static', filename='images/icons/ttt_logo.svg') }}" alt="Developer Logo" width="24px">
+        </a>
+    </div>
+</footer>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+    }
+
+    // Close sidebar when clicked outside
+    document.addEventListener('click', function (event) {
+        const sidebar = document.getElementById('sidebar');
+        const menuBtn = document.querySelector('.bar-button'); // Button that opens the sidebar
+
+        // Check if the click is outside the sidebar and not on the button that opens it
+        if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+            // Only close if the sidebar is open (has the 'active' class)
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active'); // Close the sidebar
+            }
+        }
+    });
+
+    // Prevent the sidebar from closing when clicking the menu button
+    document.querySelector('.bar-button').addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevent click event from propagating to document
+    });
+</script>
+
+</body>
+
+</html>

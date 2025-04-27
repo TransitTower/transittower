@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Rooms - Transit Tower{% endblock %}
+
+{% block pageTitle %}
+Our Rooms
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Slider container: Fullscreen width and height */
+    .slider-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        overflow: hidden;
+    }
+
+    .slider-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the entire area without distortion */
+    }
+
+    /* Individual Slide */
+    .slide {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Slider Dots */
+    .slider-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+    }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        cursor: pointer;
+    }
+
+    .active {
+        background-color: white;
+    }
+
+    /* Fade effect for slides */
+    .fade {
+        animation: fade 1.5s;
+    }
+
+    @keyframes fade {
+        from { opacity: 0.4 }
+        to { opacity: 1 }
+    }
+</style>
+
+<div class="content-area">
+    <h2 style="text-align: center;">Our Rooms</h2>
+
+    <!-- Welcoming Intro -->
+    <p>Welcome to Transit Tower, where comfort meets elegance in the heart of a serene locale. Our guesthouse provides a
+        range of meticulously designed rooms to meet the diverse needs of our guests. Whether you’re a solo adventurer
+        seeking a cozy retreat, a couple desiring a romantic escape, or a family needing space for everyone, our
+        guesthouse offers a perfect room for you. Each space has been crafted to make your stay both memorable and
+        delightful, ensuring that all guests feel at home from the moment they arrive.</p>
+
+    <!-- Intro of the guesthouse -->
+    <div class="responsive-container">
+        <div class="content-column">
+            <!-- Image Slider -->
+            <div class="slider-container">
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/rooms/rooms_1.jpg') }}" alt="Slide 1">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/rooms/rooms_2.jpg') }}" alt="Slide 2">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/rooms/rooms_3.jpg') }}" alt="Slide 3">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/rooms/rooms_4.jpg') }}" alt="Slide 4">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/rooms/rooms_5.jpg') }}" alt="Slide 5">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/rooms/rooms_6.jpg') }}" alt="Slide 6">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/rooms/rooms_7.jpg') }}" alt="Slide 7">
+                </div>
+
+                <!-- Dots for the slider -->
+                <div class="slider-dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                    <span class="dot" onclick="currentSlide(7)"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rooms Description -->
+        <div class="content-column">
+            <p>Our guesthouse is designed with modern travelers in mind, offering an inviting, homely atmosphere and a
+                commitment to exceptional hospitality. Each room provides a spacious, open layout and is consistent in
+                quality and design, ensuring the same high standard of comfort across all room types. While rooms vary
+                in bedding arrangements to suit single travelers, couples, and families, each space promises the same
+                warm ambiance and attention to detail.</p>
+
+            <p>All rooms are identical and equipped with a range of amenities aimed at enhancing your stay, including a
+                flat-screen
+                satellite TV for entertainment, complimentary high-speed WiFi to keep you connected, and modern private
+                bathrooms with fresh linens and premium toiletries. Our arrangement suiting to our guests are what
+                differs. Whether you’re relaxing after a day of exploration or simply unwinding with loved ones, our
+                guesthouse has been crafted as a retreat that meets every need. We aim to provide a space where you can
+                relax, recharge, and create wonderful memories during your stay
+                with us.</p>
+        </div>
+    </div>
+
+    <h2 style="text-align: center;">Room Options</h2>
+
+    <!-- Room Options -->
+    <div class="grid-container">
+        <!-- Double Bed -->
+        <div class="card">
+            <h3>Standard</h3>
+            <h3>US$ 60</h3>
+            <p>Perfect for couples, our Couple rooms provide a warm and intimate ambiance, setting the stage for a
+                memorable retreat. Sink into a spacious double bed dressed in high-thread-count linens and enjoy
+                amenities like a private balcony, en-suite bathroom, and in-room dining. The romantic setup offers ideal
+                surroundings to unwind together, with nearby access to beach activities and scenic walks. Couples will
+                find everything needed for a relaxing, intimate escape.</p>
+        </div>
+
+        <!-- Family Arrangement -->
+        <div class="card">
+            <h3>Deluxe</h3>
+            <h3>US$ 80-120</h3>
+            <p>Our Family rooms are spacious and designed with all ages in mind, providing a harmonious blend of comfort
+                and functionality. Each room includes a double bed and additional beds for kids, a cozy seating area,
+                and entertainment options for all. The family-friendly setup ensures everyone has ample room to relax,
+                with easy access to shared amenities and children’s activities. It’s the ideal environment to bond,
+                unwind, and create lasting memories together.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Automatic transitioning of the slider images -->
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        const slides = document.getElementsByClassName("slide");
+        const dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 5000); // Change image every 5 seconds
+    }
+
+    function currentSlide(n) {
+        slideIndex = n;
+        showSlides();
+    }
+</script>
+
+{% endblock %}

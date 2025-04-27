@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - Transit Tower{% endblock %}
+
+{% block pageTitle %}
+About Us
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Slider container: Fullscreen width and height */
+    .slider-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        overflow: hidden;
+    }
+
+    .slider-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the entire area without distortion */
+    }
+
+    /* Individual Slide */
+    .slide {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Slider Dots */
+    .slider-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+    }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        cursor: pointer;
+    }
+
+    .active {
+        background-color: white;
+    }
+
+    /* Fade effect for slides */
+    .fade {
+        animation: fade 1.5s;
+    }
+
+    @keyframes fade {
+        from { opacity: 0.4 }
+        to { opacity: 1 }
+    }
+</style>
+
+<div class="content-area">
+    <h1 style="text-align: center;">About Us</h1>
+
+    <!-- Welcoming Intro -->
+    <p>Transit Tower is a cozy guesthouse nestled in the heart of Maradhoo in Addu City. We pride ourselves on providing
+        exceptional hospitality and a welcoming atmosphere. Whether you're here for business or leisure, we aim to make
+        your stay as comfortable and memorable as possible.</p>
+
+    <!-- Intro of the guesthouse -->
+    <div class="responsive-container">
+        <div class="content-column">
+            <!-- Image Slider -->
+            <div class="slider-container">
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/about/about_1.jpg') }}" alt="Slide 1">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/about/about_2.jpg') }}" alt="Slide 2">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/about/about_3.jpg') }}" alt="Slide 3">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/about/about_4.jpg') }}" alt="Slide 4">
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/about/about_5.jpg') }}" alt="Slide 5">
+                </div>
+
+                <!-- Dots for the slider -->
+                <div class="slider-dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-column">
+            <p>Our guest house offers a range of contemporary air-conditioned rooms to ensure your comfort during your
+                stay. Indulge in the authentic flavors of the Maldives, Asia, and the West at our on-site restaurant,
+                while staying connected with complimentary Wi-Fi.</p>
+            <p>Our well-appointed rooms feature flat-screen satellite TV channels and private bathrooms equipped with
+                showers and complimentary toiletries. For an extra touch of luxury, select rooms even boast an open-air
+                shower area, Jacuzzi, and bath tub, providing you with an unforgettable experience.</p>
+            <p>We believe in going the extra mile to make your stay memorable. Take advantage of our guest services,
+                which include bicycle rental, laundry facilities, and airport transfers (additional fees may apply). For
+                added peace of mind, we offer safety deposit boxes to safeguard your belongings. If you’re an adventure
+                enthusiast, we have you covered with arrangements for diving and snorkeling experiences. And for those
+                eager to explore the wonders of the Maldives, our tour desk is at your service, providing valuable
+                information on exciting day trips, such as whale-shark watching.</p>
+        </div>
+    </div>
+
+    <h2 style="text-align: center;">Why Choose Us?</h2>
+
+    <!-- Reasons to choose us -->
+    <div class="grid-container">
+        <!-- Warm Hospitality -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/icons/reasons/hospitality.svg') }}" alt="Hospitality">
+            </div>
+            <h3>Warm Hospitality</h3>
+            <p>The guest house is known for its warm and welcoming hospitality. The staff members are attentive,
+                friendly, and go out of their way to make guests feel comfortable and well taken care of. A friendly and
+                accommodating staff can significantly enhance the overall experience of your stay.</p>
+        </div>
+
+        <!-- Expanse of activities -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/icons/reasons/activities.svg') }}" alt="Activities">
+            </div>
+            <h3>Expanse of Activities</h3>
+            <p>Whether you are an adventure seeker or prefer a relaxing vacation, Transit Tower offers a range of
+                activities to cater to different preferences. From snorkeling and diving in the vibrant coral reefs to
+                dolphin-watching excursions and sunset cruises, there’s something for everyone to enjoy.</p>
+        </div>
+
+        <!-- Authentic Region Specific Experience -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/icons/reasons/authentic.svg') }}" alt="Authenticity">
+            </div>
+            <h3>Authentic Region Specific Experience</h3>
+            <p>Staying in a guest house allows you to experience the local culture and way of life more intimately than
+                in large resorts. Transit Tower provides an authentic Maldivian experience, allowing you to interact
+                with locals, savor traditional Maldivian cuisine, and learn about their customs and traditions.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Automatic transitioning of the slider images -->
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        const slides = document.getElementsByClassName("slide");
+        const dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 5000); // Change image every 5 seconds
+    }
+
+    function currentSlide(n) {
+        slideIndex = n;
+        showSlides();
+    }
+</script>
+
+{% endblock %}

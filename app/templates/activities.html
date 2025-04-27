@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Activities - Transit Tower{% endblock %}
+
+{% block pageTitle %}
+Activities
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Exciting animation */
+    @keyframes exciting-animation {
+        0% {
+            color: #333; /* Starting color */
+        }
+        30% {
+            color: var(--primary-color); /* First color change */
+        }
+        60% {
+            color: var(--accent-color); /* Second color change */
+        }
+        100% {
+            color: #333; /* Back to original color */
+        }
+    }
+
+    h2.exciting {
+        animation: exciting-animation 1.5s ease-in-out infinite;
+        text-align: center;
+    }
+
+    /* Styling the dynamic word */
+    #dynamic-word {
+        display: inline-block;
+        overflow: hidden;
+        height: 1.2em; /* Adjust this based on the font size */
+        font-size: var(--xxl-value);
+        font-family: 'Montserrat', sans-serif;
+        color: var(--secondary-color);
+    }
+
+    #dynamic-word ul {
+        padding: 0;
+        margin: 0;
+        height: auto;
+        list-style: none;
+        top: 0;
+        animation: slide-up 6s infinite;
+    }
+
+    /* Animation for the list sliding up */
+    @keyframes slide-up {
+        0% {
+            transform: translateY(0%);
+        }
+        25% {
+            transform: translateY(-25%);
+        }
+        50% {
+            transform: translateY(-50%);
+        }
+        75% {
+            transform: translateY(-75%);
+        }
+        100% {
+            transform: translateY(0%);
+        }
+    }
+</style>
+
+<div class="content-area">
+    <h2 class="exciting">Exciting activities</h2>
+    <h1 style="text-align: center;">Make your stay...
+        <span id="dynamic-word">
+            <ul>
+                <li>enjoyable!</li>
+                <li>adventurous!</li>
+                <li>romantic!</li>
+                <li>memorable!</li>
+            </ul>
+        </span>
+    </h1>
+    <p>In Transit Tower guesthouse we go beyond ordinary snorkeling or fishing experiences. Our diverse range of
+        activities ensures there’s something for everyone seeking unforgettable moments on this paradise island.</p>
+
+    <!-- List activities and provide details/photos -->
+    <div class="grid-container">
+        <!-- Excursion -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/excursion.jpg') }}" alt="Excursion">
+            </div>
+            <h3>Excursion / Island Hopping</h3>
+            <p>Immerse yourself in the local culture and enjoy the wonders of island hopping in the Maldives. Explore
+                the rich culture, heritage and history of the connecting chain of islands In Addu Atoll. Our neighbours
+                here offer a variety of traditional, local crafts and souvenirs, as well as delicious local cuisine. In
+                respect of how our neighbouring local Maldivians work and live together on the island, the required
+                dress code for the excursion is, at minimum, a short-sleeved t-shirt, knee-length shorts for women, and
+                shorts for men. A parent must accompany all children under the age of 16.</p>
+        </div>
+
+        <!-- Snorkeling -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/snorkeling.jpg') }}" alt="Snorkeling">
+            </div>
+            <h3>Snorkeling</h3>
+            <p>Our world-class reefs hosts a breathtaking variety of marine life. The reef is easily accessible, just a
+                few metres from the shore, and perfect for beginners to explore. It gently slopes to a depth of 20m and
+                is home to spectacular coral, harmless blacktip sharks, turtles, rays and many other species.
+
+                Wade into the lagoon with your mask, snorkel and fins and discover a world of mesmerising underwater
+                beauty.</p>
+        </div>
+
+        <!-- Day fishing -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/day_fishing.jpg') }}" alt="Day Fishing">
+            </div>
+            <h3>Day Fishing</h3>
+            <p>Permit, Barracuda, Giant Trevally, Tuna, Groupers, Snappers, Billfish – you’ll find them all! Tropical
+                fish in the Maldives are numerous. You can reel in specimens of all shapes and colors, including plenty
+                you’ve never seen before! There are endless catches to make, but here are a few of the top targets that
+                bring anglers to the Maldives. The Maldives are among a few places in the world where you can catch GTs
+                year-round, both on the reefs and over the flats. So, targeting GTs here is a great opportunity to try
+                out the Maldives’ most popular fishing methods – jigging and popping. The same goes when fishing over
+                the flats, the only caveat being that the fish here are smaller, usually hitting between 10–15 pounds.
+                Fly fishers won’t mind, though, as the clear shallow waters here are perfect for sight casting.</p>
+        </div>
+
+        <!-- Night Fishing -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/night_fishing.jpg') }}" alt="Night Fishing">
+            </div>
+            <h3>Night Fishing</h3>
+            <p>Experience fishing in the Maldivian style with hand lines and small fish as bait; an art practised by
+                many generations in the country. Includes a large spool, fishing line, and bait. The line is first
+                dropped to the water in a place where there are lots of fish, particularly near corals. Although there
+                is no off-season for this nighttime expedition, it would be advisable to go night fishing when there
+                are clear skies.</p>
+        </div>
+
+        <!-- Diving -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/diving.jpg') }}" alt="Diving">
+            </div>
+            <h3>Diving</h3>
+            <p>The Maldives is a low-lying nation with dreamy white sand beaches and excellent reefs with an abundance
+                of marine life. Scuba diving is done at a leisurely drift pace as the Indian monsoon current sweeps
+                along the island chains, moving nutrients and divers along. This rich water flows up along the walls,
+                feeding the soft coral clinging to the rock sides.
+
+                Inside the atoll lagoons, rock pinnacles – thila – rise up from the depths to scratch the water’s
+                surface. In the channels there are swim-through, caverns and overhangs festooned with colorful sponges,
+                invertebrates and gorgons. At cleaning stations, wrasse and shrimp service manta rays, with giant
+                turtle and whale shark sightings common.</p>
+        </div>
+
+        <!-- Destination Wedding -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/wedding.jpg') }}"
+                     alt="Wedding">
+            </div>
+            <h3>Destination Wedding</h3>
+            <p>Say ‘I do’ with a traditional Maldivian wedding or a destination wedding function against a backdrop of
+                cerulean blues and the swell of the Indian Ocean. On a private island with friends and family, or just
+                the two of you under a white-canopied tent. Relax and beautify before a professional photoshoot on soft
+                white sands.</p>
+        </div>
+
+        <!-- Honeymoon -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/honeymoon.jpg') }}"
+                     alt="Transit Tower">
+            </div>
+            <h3>Honeymoon</h3>
+            <p>Imagine a honeymoon where every moment is pure bliss. Our secluded island offers pristine beaches,
+                crystal-clear waters, and luxurious accommodations, creating the perfect setting for your romantic
+                getaway. Let us curate a personalized honeymoon experience just for you. Whether you prefer relaxation,
+                adventure, or a combination of both, we'll ensure your honeymoon is unforgettable.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

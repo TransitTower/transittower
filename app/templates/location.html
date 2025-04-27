@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Location - Transit Tower{% endblock %}
+
+{% block pageTitle %}
+Addu City
+{% endblock %}
+
+{% block content %}
+<div class="content-area">
+    <h1 style="text-align: center;">Location & Background</h1>
+
+    <!-- Welcoming Intro -->
+    <p>Addu is the southernmost atoll of the Maldives and is being developed by the Government as a whole city - an
+        alternative urban centre, with Gan upgraded and ready to be used as an International Airport. Transit Tower is
+        built on Maradhoo Feydhoo near the beaches.</p>
+
+    <!-- Background -->
+    <div class="responsive-container">
+        <div class="content-column">
+            <img style="border-radius: 16px;"
+                 src="{{ url_for('static', filename='images/location/addu_atoll.png') }}"
+                 alt="Transit Tower"
+                 width="100%" height="100%">
+
+            <p>Maradhoo Feydhoo is located in the middle of the island chain the west side of Addu City. To the North
+                are Hankede followed by Hithadhoo's Gaukendi, Rujjehera, Abuhera, RAF, Maamendhoo and Mainland
+                Hithadhoo. To the South are Feydhoo and Gan
+                island. Maradhoo feydhoo is about 539 kilometers from the Maldives capital island Male. It has a
+                population of 2000. Mardhoo Feydhoo's location makes it strategically important for Addu City as the
+                main bridging point.</p>
+        </div>
+
+        <div class="content-column">
+            <p>A guest house on the island of Maradhoo Feydhoo would also serve as a one stop-over for a growing
+                cruising clientele and will enjoy exclusive advantages that no other resort or hotel in the region would
+                have; ease of access, business, convention facilities in addition to facilities for health and
+                recreation is a major comfort to any traveler.</p>
+            <p>The ease of access to the area by sea plane and through air via Gan International Airport is an
+                opportunity for investors and developers to generate high value, higher turnover business. Transit Tower
+                will be a stylish guesthouse with a unique combination of style and substance, casually elegant guest
+                room furnishings, and a relaxing atmosphere throughout the guesthouse. The guesthouse will be
+                exclusively combined modern architectural elements with traditional Maldivian design.</p>
+            <p>The unique geography of the atoll, its traditions and the strategic location of the guesthouse also
+                determine several aspects of the design concept. Classical guesthouse elements, high-tech elements and
+                ethnic elements will be blended and balanced to meet international 4-star hotel standards, exclusively
+                conceived for the Maldivian environment. As the guest house will be strategically located near the
+                beach, to an indoor sports complex, an ATM Banking facility and near to a Bar located at Gan.</p>
+        </div>
+    </div>
+
+    <h2 style="text-align: center;">More about Addu City..</h2>
+
+    <!-- More about Addu City -->
+    <div class="grid-container">
+        <!-- History -->
+        <div class="borderless-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/location/addu_history.jpg') }}" alt="Addu History">
+            </div>
+            <h3>History</h3>
+            <p>Addu city is divided into the six districts and is the oldest populated Atoll in the Maldives, with the
+                Island of Meedhoo having traces of settlements as far back as 2000 BCE. During World War II, in 1942,
+                the British Royal Navy had its Royal Air Force (RAF) base in Addu City’s Gan Island. The airfield used
+                by the RAF was later turned into Gan International Airport, and the Army Hospital is now used as a dive
+                centre. The area where the RAF had their mess and accommodation blocks has been converted into Equator
+                Village, a hotel frequented by guests from around the world. The city itself boasts many World War II
+                era sites, such as an old cinema, the cannon guns used by the British placed in certain areas for public
+                viewing.</p>
+        </div>
+
+        <!-- Unique Cuisine -->
+        <div class="borderless-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/location/addu_bondi.jpg') }}" alt="Addu Bondi">
+            </div>
+            <h3>Unique Cuisine</h3>
+            <p>Addu has a wide selection of authentic dishes all made using fresh ingredients. They have an extensive
+                menu from coconut based curry, to sweet and savoury delicacies. One specific Addu speciality is Addu
+                Havaadhu (curry mix) which is unique to the island and famous across the Maldives. It's an easy to use,
+                extremely delicious spice mix used to make tuna or chicken curry and best enjoyed with soft thin pita
+                bread or rice. Another must try is the Addu bendi, a sweet snack made using young coconut flesh. There
+                are many more dishes and snacks you can try in Addu which are worth a taste, at least once. One food
+                experience you have to try in Addu is enjoying a king coconut at a Gaadiya (local mobile food and drink
+                stall). The Gaadiyas also offer many sweet and savoury snacks you can try from.</p>
+        </div>
+
+        <!-- Addu Nature Park -->
+        <div class="borderless-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/location/addu_nature_park.jpg') }}" alt="Addu Nature Park">
+            </div>
+            <h3>Addu Nature Park</h3>
+            <p>Addu city boasts some of the most beautiful landscapes you could find in the Maldives. Its lush green
+                vegetation, large swathes of mangrove systems and diverse ecosystem are sights to behold. One such area
+                is the Addu Nature Park, which encompasses the Eydhigali Kilhi wetlands and Koattey, a protected area on
+                Hithadhoo island. In the local language, Dhivehi, Koattey literally translates to “fortress,” which is a
+                fitting name for this area as it has a rich ecosystem, brimming with life. You can rent a buggy and ride
+                around the piers and paved roads of the nature park, canoe in the “Bedhi'' bay area famous for its
+                beautiful red mangroves, or simply wander on foot on walkways in the nature park while taking in the
+                wonders of this beautiful place.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

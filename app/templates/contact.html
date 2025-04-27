@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Transit Tower{% endblock %}
+
+{% block pageTitle %}
+    Contact Us
+{% endblock %}
+
+{% block content %}
+<div class="content-area">
+    <div class="responsive-container">
+        <div class="content-column">
+            <img style="border-radius: 16px;"
+                 src="{{ url_for('static', filename='images/contact/transit_tower_reception.jpg') }}"
+                 alt="Transit Tower"
+                 width="100%" height="100%">
+        </div>
+
+        <div class="content-column">
+            <p><strong>Address: </strong>Dheydharuge, Nooraanee Magu, Link Road, Addu City 19050</p>
+            <p><strong>Phone: </strong>+960-688-1500</p>
+            <p><strong>Mobile: </strong>+960-749-1500</p>
+            <p><strong>For reservations: </strong>reservations@transit-tower.com</p>
+            <p><strong>For queries: </strong>info@transit-tower.com</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

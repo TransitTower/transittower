@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - Transit Tower{% endblock %}
+
+{% block pageTitle %}
+Gallery
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Exciting animation */
+    @keyframes exciting-animation {
+        0% {
+            color: #333; /* Starting color */
+        }
+        30% {
+            color: var(--primary-color); /* First color change */
+        }
+        60% {
+            color: var(--accent-color); /* Second color change */
+        }
+        100% {
+            color: #333; /* Back to original color */
+        }
+    }
+
+    h2.exciting {
+        animation: exciting-animation 1.5s ease-in-out infinite;
+        text-align: center;
+    }
+
+    .grid-container img{
+        width: 100%;
+        height: 100:
+        object-fit: cover;
+    }
+</style>
+
+<div class="content-area">
+    <h2 class="exciting">Gallery</h2>
+
+    <!-- Photos -->
+    <div class="grid-container">
+        <img src="{{ url_for('static', filename='images/rooms/rooms_1.jpg') }}" alt="Gallery Image 13">
+        <img src="{{ url_for('static', filename='images/rooms/rooms_2.jpg') }}" alt="Gallery Image 14">
+        <img src="{{ url_for('static', filename='images/rooms/rooms_3.jpg') }}" alt="Gallery Image 15">
+        <img src="{{ url_for('static', filename='images/rooms/rooms_4.jpg') }}" alt="Gallery Image 16">
+        <img src="{{ url_for('static', filename='images/rooms/rooms_5.jpg') }}" alt="Gallery Image 17">
+        <img src="{{ url_for('static', filename='images/rooms/rooms_6.jpg') }}" alt="Gallery Image 18">
+        <img src="{{ url_for('static', filename='images/rooms/rooms_7.jpg') }}" alt="Gallery Image 19">
+        <img src="{{ url_for('static', filename='images/homepage/home_1.jpg') }}" alt="Gallery Image 6">
+        <img src="{{ url_for('static', filename='images/homepage/home_2.jpg') }}" alt="Gallery Image 7">
+        <img src="{{ url_for('static', filename='images/homepage/home_3.jpg') }}" alt="Gallery Image 8">
+        <img src="{{ url_for('static', filename='images/homepage/home_4.jpg') }}" alt="Gallery Image 9">
+        <img src="{{ url_for('static', filename='images/homepage/home_5.jpg') }}" alt="Gallery Image 10">
+        <img src="{{ url_for('static', filename='images/homepage/home_6.jpg') }}" alt="Gallery Image 11">
+        <img src="{{ url_for('static', filename='images/homepage/home_7.jpg') }}" alt="Gallery Image 12">
+        <img src="{{ url_for('static', filename='images/about/about_1.jpg') }}" alt="Gallery Image 1">
+        <img src="{{ url_for('static', filename='images/about/about_2.jpg') }}" alt="Gallery Image 2">
+        <img src="{{ url_for('static', filename='images/about/about_3.jpg') }}" alt="Gallery Image 3">
+        <img src="{{ url_for('static', filename='images/about/about_4.jpg') }}" alt="Gallery Image 4">
+        <img src="{{ url_for('static', filename='images/about/about_5.jpg') }}" alt="Gallery Image 5">
+    </div>
+</div>
+{% endblock %}
