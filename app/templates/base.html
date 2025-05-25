@@ -1,3 +1,4 @@
+<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        height: 48px;
+        height: 40px;
         width: 100%;
         padding: var(--m-value);
         background-color: rgba(255, 255, 255, 0.3);
@@ -26,7 +27,7 @@
     .navbar-right {
         display: flex;
         align-items: center;
-        gap: var(--s-value);
+        gap: var(--xs-value);
     }
 
     .navbar-left {
@@ -44,6 +45,11 @@
         align-items: center;
         justify-content: center;
         background-color: transparent;
+    }
+
+    .bar-button img {
+        width: 24px;
+        height: 24px;
     }
 
     .page-title {
@@ -164,7 +170,7 @@
     <div class="navbar-left ui-row">
         <!-- Menu Button -->
         <button class="bar-button" onclick="toggleSidebar()">
-            <img src="{{ url_for('static', filename='images/icons/funcs/menu.svg') }}" alt="Menu" width="24px">
+            <img src="{{ url_for('static', filename='images/icons/funcs/menu.svg') }}" alt="Menu">
         </button>
 
         <!-- Vertical Divider -->
@@ -180,18 +186,18 @@
     <div class="navbar-right ui-row">
         <!-- Logo (links to home) -->
         <button class="bar-button" onclick="window.location.href='/'">
-            <img src="{{ url_for('static', filename='images/icons/funcs/home.svg') }}" alt="Home" width="32px">
+            <img src="{{ url_for('static', filename='images/icons/funcs/home.svg') }}" alt="Home">
         </button>
 
         <!-- Call Button -->
         <button class="bar-button" onclick="window.location.href='tel:+9607491500'">
-            <img src="{{ url_for('static', filename='images/icons/funcs/call.svg') }}" alt="Call" width="32px">
+            <img src="{{ url_for('static', filename='images/icons/funcs/call.svg') }}" alt="Call">
         </button>
 
         <!-- Email Button -->
         <button class="bar-button" onclick="window.location.href='mailto:sales@transit-tower.com'"
                 style="margin-right: 32px;">
-            <img src="{{ url_for('static', filename='images/icons/funcs/email.svg') }}" alt="Email" width="32px">
+            <img src="{{ url_for('static', filename='images/icons/funcs/email.svg') }}" alt="Email">
         </button>
     </div>
 </div>

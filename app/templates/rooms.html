@@ -1,3 +1,4 @@
+<!-- templates/rooms.html -->
 {% extends "base.html" %}
 
 {% block title %}Rooms - Transit Tower{% endblock %}
@@ -12,14 +13,15 @@ Our Rooms
     .slider-container {
         position: relative;
         width: 100%;
-        height: 100vh; /* Full viewport height */
+        height: 100%; /* Full viewport height */
         overflow: hidden;
     }
 
     .slider-container img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Ensures the image covers the entire area without distortion */
+        object-fit: contain; /* Show the full image */
+        object-position: top center; /* Center the image within its container */
     }
 
     /* Individual Slide */
@@ -63,6 +65,23 @@ Our Rooms
     @keyframes fade {
         from { opacity: 0.4 }
         to { opacity: 1 }
+    }
+
+    @media (max-width: 768px) {
+        .slider-container {
+            height: auto; /* Let height be determined by content (image height) */
+            aspect-ratio: 16 / 9; /* Optional: keep consistent aspect ratio */
+        }
+
+        .slider-container img {
+            width: 100%;
+            height: auto; /* Maintain image aspect ratio */
+            object-fit: contain; /* Show the full image, avoid cutting off */
+        }
+
+        .slide {
+            position: static; /* Let it flow normally in the document */
+        }
     }
 </style>
 

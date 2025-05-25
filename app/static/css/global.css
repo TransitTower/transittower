@@ -1,3 +1,4 @@
+/* statics/css/globals.css */
 /* Variables */
 :root {
 /* Updated Colors */
@@ -407,5 +408,9 @@ img {
 
     .flash-messages {
         top: 126px;
+    }
+
+    .page-title {
+        display: none;
     }
 }
