@@ -16,10 +16,10 @@
         position: fixed;
         top: 0;
         left: 0;
-        height: 40px;
+        height: var(--xxl-value);
         width: 100%;
-        padding: var(--m-value);
-        background-color: rgba(255, 255, 255, 0.3);
+        padding: var(--padding-s);
+        background-color: rgba(255, 255, 255, 0.3); /* Keeping light transparent for elegance */
         z-index: 2;
     }
 
@@ -48,18 +48,18 @@
     }
 
     .bar-button img {
-        width: 24px;
-        height: 24px;
+        width: var(--xl-value);
+        height: var(--xl-value);
     }
 
     .page-title {
-        font-size: var(--l-value);
-        font-weight: bold;
+        font-size: var(--font-m);
+        font-weight: var(--font-weight-medium);
     }
 
     .bar-button:hover,
     .navbar a:hover {
-        background-color: var(--primary-dark);
+        background-color: var(--primary-dark); /* Using primary-dark for hover on navbar elements */
     }
 
     .navbar-left .menu-btn {
@@ -72,20 +72,19 @@
 
     main {
         overflow-y: auto;
-        min-height: calc(80vh - 80px); /* Ensure content area can expand and scroll */
+        min-height: calc(80vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
     }
 
     /* Content Area */
     .content {
-        /* padding: var(--m-value) var(--m-value); */
         overflow-y: auto;
-        min-height: calc(100vh - 80px); /* Ensure content area can expand and scroll */
+        min-height: calc(100vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
     }
 
     /* Main Content Adjustment when Sidebar is Active */
     .content.active {
         margin-left: 250px; /* Match sidebar width */
-        transition: margin-left 0.5s; /* Smooth transition */
+        transition: margin-left var(--transition-fast); /* Smooth transition */
     }
 
     /* Sidebar */
@@ -97,8 +96,9 @@
         top: 0;
         left: 0;
         overflow-x: hidden; /* Disable horizontal scroll */
-        transition: 0.5s; /* Animation time */
+        transition: var(--transition-fast); /* Animation time */
         overflow-y: auto;
+        background-color: var(--primary-dark); /* Sidebar background set to primary-dark */
     }
 
     .sidebar::-webkit-scrollbar {
@@ -106,18 +106,18 @@
     }
 
     .sidebar a {
-        padding: var(--s-value);
+        padding: var(--padding-s);
         text-decoration: none;
-        font-size: var(--m-value);
-        color: white;
+        font-size: var(--font-m);
+        color: var(--accent-color); /* Sidebar links use accent color */
         background: transparent;
         display: block;
-        transition: 0.3s;
+        transition: var(--transition-fast);
     }
 
     .sidebar a:hover {
-        background-color: #CD8032;
-        color: black;
+        background-color: var(--primary-light); /* Lighter primary for hover background */
+        color: var(--accent-dark-1); /* Darker accent for hover text */
     }
 
     .sidebar.active {
@@ -129,16 +129,16 @@
         display: flex;
         flex-direction: row;
         width: 100%;
-        height: 32px;
+        height: var(--xl-value); /* Using responsive sizing variable */
         align-items: center;
         gap: var(--m-value);
         justify-content: center;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.3); /* Keeping a dark transparent for this specific row */
         padding: var(--xs-value);
     }
 
     footer p, footer a {
-        font-size: var(--s-value);
+        font-size: var(--font-s); /* Using fluid font size variable */
         color: white;
     }
 
@@ -149,7 +149,7 @@
     }
 
     footer h1, footer h2, footer h3 {
-        font-size: var(--m-value);
+        font-size: var(--font-m); /* Using fluid font size variable */
     }
 
     .footer-social-button {

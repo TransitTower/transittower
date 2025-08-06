@@ -1,40 +1,57 @@
 /* statics/css/globals.css */
 /* Variables */
 :root {
-/* Updated Colors */
+    /* Updated Colors */
     /* Accent Color (Gold Variants) */
     --accent-color: #FFD700;        /* Original Gold */
-    --accent-light-1: #FFE566;      /* Light Variant 1 */
-    --accent-light-2: #FFEB99;      /* Light Variant 2 */
-    --accent-dark-1: #D4B800;       /* Dark Variant 1 */
-    --accent-dark-2: #997A00;       /* Dark Variant 2 */
+    --accent-light-1: #FFE566;      /* Light Variant */
+    --accent-dark-1: #D4B800;       /* Dark Variant */
 
     /* Primary Color (Turquoise Variants) */
     --primary-color: #40E0D0;       /* Original Turquoise */
-    --primary-light: #66E8DC;       /* Light Variant 1 */
-    --primary-light-2: #80F0E0;     /* Light Variant 2 */
-    --primary-dark: #00C0B0;        /* Dark Variant 1 */
-    --primary-dark-2: #00A090;      /* Dark Variant 2 */
+    --primary-light: #66E8DC;       /* Light Variant */
+    --primary-dark: #00C0B0;        /* Dark Variant */
 
-    /* Secondary Color (Green Variants) */
-    --secondary-color: #17E021;     /* Original Green */
-    --secondary-light: #60F080;     /* Light Variant 1 */
-    --secondary-light-2: #99F8B0;   /* Light Variant 2 */
-    --secondary-dark: #00C000;      /* Dark Variant 1 */
-    --secondary-dark-2: #009900;    /* Dark Variant 2 */
-    --secondary-dark-3: #97A795;    /* Dark Variant 3 */
-
+    /* Conditional Colors (kept for specific states like success/danger) */
     --success-color: rgba(0, 255, 0, 0.5); /* Success color */
     --danger-color: rgba(255, 0, 0, 0.5); /* Danger color */
     --warning-color: rgba(255, 165, 0, 0.5); /* Warning color */
     --info-color: rgba(0, 0, 255, 0.58); /* Info color */
 
-    --xs-value: 8px;
-    --s-value: 12px;
-    --m-value: 16px;
-    --l-value: 20px;
-    --xl-value: 24px;
-    --xxl-value: 28px;
+    /* Responsive sizing */
+    --xs-value: clamp(2px, 0.2rem + 0.1vw, 4px);      /* Smallest spacing, scales slightly */
+    --s-value: clamp(6px, 0.4rem + 0.2vw, 8px);        /* Small spacing */
+    --m-value: clamp(12px, 0.8rem + 0.4vw, 16px);      /* Medium spacing */
+    --l-value: clamp(18px, 1.2rem + 0.6vw, 24px);      /* Large spacing */
+    --xl-value: clamp(24px, 1.6rem + 0.8vw, 32px);     /* Extra-large spacing */
+    --xxl-value: clamp(32px, 2rem + 1vw, 40px);        /* 2x-large spacing */
+    --xxxl-value: clamp(48px, 2.4rem + 1.4vw, 64px);   /* 3x-large spacing */
+
+    /* Fluid Font Sizing */
+    --font-xxs: clamp(0.65rem, 0.6rem + 0.15vw, 0.75rem);
+    --font-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.9rem);
+    --font-s: clamp(0.85rem, 0.8rem + 0.35vw, 1.0rem);
+    --font-m: clamp(1rem, 0.9rem + 0.5vw, 1.2rem);
+    --font-l: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+    --font-xl: clamp(1.5rem, 1.3rem + 1vw, 1.8rem);
+
+    /* Font weights */
+    --font-weight-thin: 200;
+    --font-weight-medium: 400;
+    --font-weight-thick: 600;
+
+    /* Border radius */
+    --border-radius-panels: var(--m-value);        /* For Panels/Cards */
+    --border-radius-elements: var(--s-value);      /* For Buttons/inputs etc. */
+    --border-radius-containers: 10%;         /* For Containers/Modals etc. */
+
+    /* Padding */
+    --padding-s: var(--s-value);      /* For Panels/Cards */
+    --padding-m: var(--m-value);      /* For Buttons */
+    --padding-l: var(--l-value);      /* For Form Containers */
+
+    /* 🧩 Other */
+    --transition-fast: 0.3s ease;
 }
 
 /* Global Styles */
@@ -48,30 +65,30 @@ body {
 }
 
 footer {
-    background-color: var(--secondary-dark-3);
+    background-color: var(--primary-dark); /* Changed to primary-dark */
 }
 
 h1, h2 {
     font-family: 'Montserrat', sans-serif;
-    color: black;
+    color: black; /* Keeping black for strong contrast */
     margin: var(--m-value) 0;
-    font-weight: normal;
+    font-weight: var(--font-weight-medium);
 }
 
 h3, h4 {
     font-family: 'Montserrat', sans-serif;
-    color: black;
+    color: black; /* Keeping black for strong contrast */
     margin: var(--m-value) 0;
     text-decoration: none;
-    font-size: var(--m-value);
-    font-weight: normal;
+    font-size: var(--font-m);
+    font-weight: var(--font-weight-medium);
 }
 
 p, span, label {
     font-family: 'Lato', sans-serif;
-    font-size: var(--m-value);
-    line-height: 1.5;
-    color: #555;
+    font-size: var(--font-s); /* Reduced font size for paragraph and general text */
+    line-height: 1.7; /* Increased line height for better readability */
+    color: #555; /* Keeping a dark grey for readability on light backgrounds */
 }
 
 p {
@@ -80,13 +97,13 @@ p {
 
 a {
     font-family: 'Open Sans', sans-serif;
-    color: var(--accent-color);
+    color: var(--accent-color); /* Links use accent color */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-fast);
 }
 
 a:hover {
-    color: var(--accent-dark-1);
+    color: var(--accent-dark-1); /* Darker accent on hover */
 }
 
 button, .cta {
@@ -94,33 +111,33 @@ button, .cta {
     align-items: center;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
-    font-size: var(--m-value);
-    padding: var(--s-value) var(--m-value);
-    background-color: var(--accent-color);
+    font-size: var(--font-m);
+    padding: var(--padding-s) var(--padding-m);
+    background-color: var(--accent-color); /* Buttons use accent color */
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius-elements);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-fast);
 }
 
 button:hover, .cta:hover {
-    background-color: var(--accent-dark-1);
+    background-color: var(--accent-dark-1); /* Darker accent on hover */
 }
 
 input, select {
-    min-height: 32px;
+    min-height: var(--xl-value);
     font-family: 'Lato', sans-serif;
-    font-size: var(--m-value);
-    padding: var(--s-value);
-    border: 1px solid #ccc;
-    border-radius: var(--s-value);
+    font-size: var(--font-m);
+    padding: var(--padding-s);
+    border: 1px solid var(--primary-light); /* Input borders use primary-light */
+    border-radius: var(--border-radius-elements);
     width: 100%;
     box-sizing: border-box;
 }
 
 input:focus, select:focus {
-    border-color: var(--primary-color);
+    border-color: var(--primary-color); /* Focus border uses primary color */
     outline: none;
 }
 
@@ -147,15 +164,15 @@ img {
     flex-direction: column;
     flex-wrap: wrap;
     text-align: left;
-    padding: 16px 32px;
+    padding: var(--m-value) var(--xl-value);
     flex: 1;
-    box-sizing: border-box; /* Ensure padding is included in width */
-    width: 100%; /* Ensure it takes up full width */
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .content-area {
     margin-top: 66px;
-    padding: 2em;
+    padding: var(--xxl-value);
     box-sizing: border-box;
 }
 
@@ -180,9 +197,9 @@ img {
     top: 80px;
     width: 100%;
     height: content;
-    z-index: 2000; /* Place flash messages above other elements */
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for visibility */
+    z-index: 2000;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -191,9 +208,8 @@ img {
 
 .flash-message {
     width: 100%;
-    padding: var(--s-value);
-    /* font-weight: bold; */
-    font-size: var(--m-value);
+    padding: var(--padding-s);
+    font-size: var(--font-m);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -214,10 +230,10 @@ img {
 
 /* Spinner */
 .spinner {
-    width: 24px;
-    height: 24px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
+    width: var(--xl-value);
+    height: var(--xl-value);
+    border: var(--xs-value) solid var(--primary-light); /* Spinner border uses primary-light */
+    border-top: var(--xs-value) solid var(--primary-color); /* Spinner top border uses primary color */
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -231,20 +247,20 @@ img {
 /* Toast Styles */
 .toast-container {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: var(--l-value);
+    right: var(--l-value);
     z-index: 2000;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--s-value);
 }
 
 .toast {
-    background-color: var(--dark-color);
+    background-color: var(--primary-dark); /* Toast background uses primary-dark */
     color: white;
-    padding: 15px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-elements);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     animation: slide-in 0.5s ease, fade-out 0.5s ease 4.5s forwards;
@@ -255,66 +271,62 @@ img {
 .toast.info { background-color: var(--info-color); }
 
 .card {
-    padding: 2em;
-    border: 1px solid var(--secondary-dark-3);
-    border-radius: var(--m-value);
+    padding: var(--xxl-value);
+    border: 1px solid var(--primary-light); /* Card border uses primary-light */
+    border-radius: var(--border-radius-panels);
     text-align: center;
     height: auto;
     overflow: hidden;
 }
 
 .card:hover {
-    /* animation: grow-shrink 0.5s; */
     cursor: pointer;
 }
 
 .card-image {
     width: 100%;
     height: 240px;
-    margin: 0 auto; /* Center the image container horizontally */
+    margin: 0 auto;
 }
 
 .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* Remove any inline-block space */
+    display: block;
 }
 
 .card p {
-    /*  height: 200px; /* Scrollable area height */
     overflow-y: auto;
     margin: 0;
-    /*  display: none; /* Hidden by default */
 }
 
 .card p::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+    display: none;
 }
 
 .borderless-card {
-    padding: 2em;
+    padding: var(--xxl-value);
     text-align: center;
     height: auto;
     overflow: hidden;
 }
 
 .borderless-card:hover {
-    /* animation: grow-shrink 0.5s; */
     cursor: pointer;
 }
 
 .borderless-card-image {
     width: 100%;
     height: 240px;
-    margin: 0 auto; /* Center the image container horizontally */
+    margin: 0 auto;
 }
 
 .borderless-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* Remove any inline-block space */
+    display: block;
 }
 
 .borderless-card p {
@@ -323,7 +335,7 @@ img {
 }
 
 .borderless-card p::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+    display: none;
 }
 
 @keyframes slide-in {
@@ -344,13 +356,13 @@ img {
 
 @keyframes grow-shrink {
     0% {
-        transform: scale(1); /* Start at 100% */
+        transform: scale(1);
     }
     50% {
-        transform: scale(1.1); /* Scale up to 110% */
+        transform: scale(1.1);
     }
     100% {
-        transform: scale(1); /* Scale back to 100% */
+        transform: scale(1);
     }
 }
 
@@ -358,52 +370,85 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Hide overflowing content */
-    width: 100%; /* Ensure it takes the width of the card */
-    height: 32px; /* Adjusted height to match the line height */
+    overflow: hidden;
+    width: 100%;
+    height: var(--xl-value);
 }
 
 .text-scroll-wrapper {
     display: flex;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
 }
 
 .text-scroll {
     display: inline-block;
     white-space: nowrap;
-    font-size: 16px;
-    font-weight: bold;
-    text-overflow: ellipsis; /* overflow */
-    animation: scroll-text 20s linear infinite; /* Set animation for scrolling */
+    font-size: var(--font-m);
+    font-weight: var(--font-weight-thick);
+    text-overflow: ellipsis;
+    animation: scroll-text 20s linear infinite;
 }
 
 @keyframes scroll-text {
     0% {
-        transform: translateX(60%);  /* Start with 60% of the text visible */
+        transform: translateX(60%);
     }
     100% {
-        transform: translateX(-60%); /* End with 60% of the text visible */
+        transform: translateX(-60%);
     }
+}
+
+/* Typography adjustments for global consistency */
+h1 {
+    font-size: var(--font-xl);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: var(--font-l);
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: var(--font-m);
+    line-height: 1.4;
+}
+
+h4 {
+    font-size: var(--font-s);
+    line-height: 1.5;
+}
+
+footer p, footer a {
+    font-size: var(--font-xs);
+    line-height: 1.6;
+    color: white;
+}
+
+footer h1, footer h2, footer h3 {
+    font-size: var(--font-s);
+    line-height: 1.4;
+    color: white; /* Ensure footer headings are white */
 }
 
 
 /* Media query for narrow screens */
 @media screen and (max-width: 768px) {
     .responsive-container {
-        flex-direction: column; /* As column for portrait */
+        flex-direction: column;
         justify-content: center;
     }
 
     .content-column {
-        padding: 16px; /* Reduce padding for smaller screens */
-        width: 100%; /* Ensure full width on small screens */
+        padding: var(--m-value);
+        width: 100%;
         justify-content: center;
-        box-sizing: border-box; /* Ensure padding is respected */
+        box-sizing: border-box;
     }
 
     /* Optional: To ensure no overflow of text */
     .content-column p {
-        word-wrap: break-word; /* Break words if necessary */
+        word-wrap: break-word;
     }
 
     .flash-messages {
