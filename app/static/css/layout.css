@@ -1,0 +1,154 @@
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--xxl-value);
+    width: 100%;
+    padding: var(--padding-s);
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 2;
+}
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--xs-value);
+}
+.navbar-left {
+    width: 70%; /* Default for landscape mode */
+    justify-content: flex-start;
+}
+.navbar-right {
+    width: 30%; /* Default for landscape mode */
+    justify-content: flex-end;
+}
+.page-title {
+    font-size: var(--font-s);
+    font-weight: var(--font-weight-medium);
+}
+.bar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+.bar-button img {
+    width: var(--xl-value);
+    height: var(--xl-value);
+}
+.bar-button:hover,
+.navbar a:hover {
+    /* Using primary-dark for hover on navbar elements */
+    background-color: var(--primary-dark);
+}
+.navbar-left .menu-btn {
+    /* extra spacing from the edge of screen */
+    margin-left: var(--s-value);
+}
+.navbar-right .user-btn {
+    /* extra spacing from the edge of screen */
+    margin-right: var(--l-value);
+}
+
+main {
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: calc(80vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
+}
+
+/* Content Area */
+.content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: calc(80vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
+}
+
+/* Main Content Adjustment when Sidebar is Active */
+.content.active {
+    margin-left: 250px; /* Match sidebar width */
+    transition: margin-left var(--transition-fast); /* Smooth transition */
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%; /* Full-height */
+    width: 0; /* Start hidden */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* On top of everything */
+    top: 0;
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: var(--transition-fast); /* Animation time */
+    overflow-y: auto;
+    background-color: var(--primary-dark); /* Sidebar background set to primary-dark */
+    gap: var(--m-value);
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+}
+
+.sidebar img {
+    margin-bottom: var(--s-value);
+}
+
+.sidebar a {
+    padding: var(--padding-s);
+    padding-left: var(--m-value);
+    text-decoration: none;
+    font-size: var(--font-m);
+    color: var(--accent-color); /* Sidebar links use accent color */
+    background: transparent;
+    display: block;
+    transition: var(--transition-fast);
+    margin-bottom: var(--s-value);
+}
+
+.sidebar a:hover {
+    background-color: var(--primary-light); /* Lighter primary for hover background */
+    color: var(--accent-dark-1); /* Darker accent for hover text */
+}
+
+.sidebar.active {
+    width: 250px; /* Sidebar width when active */
+}
+
+.footer-end-row {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    gap: var(--m-value);
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: var(--m-value);
+}
+
+.footer-social-button {
+    padding: 0;
+    margin: 0;
+    margin-top: var(--m-value);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-end-row p, .footer-end-row a {
+    font-size: var(--font-xxs);
+    color: white;
+}
+
+.footer-end-row .ui-row {
+    gap: var(--xs-value);
+}
+
+/* Media query for narrow screens */
+@media screen and (max-width: 768px) {
+    .footer-end-row {
+        flex-direction: column;
+        gap: var(--s-value);
+    }
+}

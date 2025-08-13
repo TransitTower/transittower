@@ -7,161 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}Transit Tower{% endblock %}</title>
     <link rel="icon" href="{{ url_for('static', filename='images/icons/favicon.svg') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}"/> <!-- Updated to global.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}"/>
 </head>
-
-<style>
-    /* Navigation Bar */
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: var(--xxl-value);
-        width: 100%;
-        padding: var(--padding-s);
-        background-color: rgba(255, 255, 255, 0.3); /* Keeping light transparent for elegance */
-        z-index: 2;
-    }
-
-    .navbar-left,
-    .navbar-right {
-        display: flex;
-        align-items: center;
-        gap: var(--xs-value);
-    }
-
-    .navbar-left {
-        width: 70%; /* Default for landscape mode */
-        justify-content: flex-start;
-    }
-
-    .navbar-right {
-        width: 30%; /* Default for landscape mode */
-        justify-content: flex-end;
-    }
-
-    .bar-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: transparent;
-    }
-
-    .bar-button img {
-        width: var(--xl-value);
-        height: var(--xl-value);
-    }
-
-    .page-title {
-        font-size: var(--font-m);
-        font-weight: var(--font-weight-medium);
-    }
-
-    .bar-button:hover,
-    .navbar a:hover {
-        background-color: var(--primary-dark); /* Using primary-dark for hover on navbar elements */
-    }
-
-    .navbar-left .menu-btn {
-        margin-left: var(--s-value);
-    }
-
-    .navbar-right .user-btn {
-        margin-right: var(--l-value);
-    }
-
-    main {
-        overflow-y: auto;
-        min-height: calc(80vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
-    }
-
-    /* Content Area */
-    .content {
-        overflow-y: auto;
-        min-height: calc(100vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
-    }
-
-    /* Main Content Adjustment when Sidebar is Active */
-    .content.active {
-        margin-left: 250px; /* Match sidebar width */
-        transition: margin-left var(--transition-fast); /* Smooth transition */
-    }
-
-    /* Sidebar */
-    .sidebar {
-        height: 100%; /* Full-height */
-        width: 0; /* Start hidden */
-        position: fixed; /* Stay in place */
-        z-index: 1001; /* On top of everything */
-        top: 0;
-        left: 0;
-        overflow-x: hidden; /* Disable horizontal scroll */
-        transition: var(--transition-fast); /* Animation time */
-        overflow-y: auto;
-        background-color: var(--primary-dark); /* Sidebar background set to primary-dark */
-    }
-
-    .sidebar::-webkit-scrollbar {
-        display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
-    }
-
-    .sidebar a {
-        padding: var(--padding-s);
-        text-decoration: none;
-        font-size: var(--font-m);
-        color: var(--accent-color); /* Sidebar links use accent color */
-        background: transparent;
-        display: block;
-        transition: var(--transition-fast);
-    }
-
-    .sidebar a:hover {
-        background-color: var(--primary-light); /* Lighter primary for hover background */
-        color: var(--accent-dark-1); /* Darker accent for hover text */
-    }
-
-    .sidebar.active {
-        width: 250px; /* Sidebar width when active */
-    }
-
-    .footer-end-row {
-        margin-bottom: 0;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: var(--xl-value); /* Using responsive sizing variable */
-        align-items: center;
-        gap: var(--m-value);
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.3); /* Keeping a dark transparent for this specific row */
-        padding: var(--xs-value);
-    }
-
-    footer p, footer a {
-        font-size: var(--font-s); /* Using fluid font size variable */
-        color: white;
-    }
-
-    footer h1, footer h2, footer h3, footer a {
-        color: white;
-        text-decoration: none;
-        font-weight: normal;
-    }
-
-    footer h1, footer h2, footer h3 {
-        font-size: var(--font-m); /* Using fluid font size variable */
-    }
-
-    .footer-social-button {
-        padding: 0;
-        margin: 0;
-        margin-top: var(--m-value);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: transparent;
-    }
-</style>
 
 <body>
 <!-- Header (Navbar) -->
@@ -190,12 +38,12 @@
         </button>
 
         <!-- Call Button -->
-        <button class="bar-button" onclick="window.location.href='tel:+9607491500'">
-            <img src="{{ url_for('static', filename='images/icons/funcs/call.svg') }}" alt="Call">
+        <button class="bar-button" onclick="window.location.href='https://wa.me/9607491500'">
+            <img src="{{ url_for('static', filename='images/icons/funcs/call.svg') }}" alt="WhatsApp Call">
         </button>
 
         <!-- Email Button -->
-        <button class="bar-button" onclick="window.location.href='mailto:sales@transit-tower.com'"
+        <button class="bar-button" onclick="window.location.href='mailto:reservations@transit-tower.com'"
                 style="margin-right: 32px;">
             <img src="{{ url_for('static', filename='images/icons/funcs/email.svg') }}" alt="Email">
         </button>
@@ -248,12 +96,14 @@
             <a href="mailto:info@transit-tower.com">Email Us</a>
             <div class="social-links ui-row">
                 <button class="footer-social-button"
-                        onclick="window.open('https://www.facebook.com/profile.php?id=61564331481907', '_blank')">
-                    <img src="{{ url_for('static', filename='images/icons/social_media/fb_white.svg') }}" alt="Facebook"
+                        onclick="window.open('https://web.facebook.com/profile.php?id=61574461148620', '_blank')">
+                    <img src="{{ url_for('static', filename='images/icons/social_media/fb_black.svg') }}"
+                         alt="Facebook"
                          width="24px">
                 </button>
-                <button class="footer-social-button" onclick="">
-                    <img src="{{ url_for('static', filename='images/icons/social_media/ig_white.svg') }}"
+                <button class="footer-social-button"
+                        onclick="window.open('https://www.instagram.com/transittower1500?igsh=Zjh0aXprYjByMXpx', '_blank')">
+                    <img src="{{ url_for('static', filename='images/icons/social_media/ig_black.svg') }}"
                          alt="Instagram"
                          width="24px">
                 </button>
@@ -263,12 +113,13 @@
 
     <!-- Footer end row -->
     <div class="footer-end-row">
-        <p>&copy; 2024 Transit Tower. All rights reserved.</p>
-        <div class="vertical-divider"></div>
-        <p>Designed & Developed by: </p>
-        <a href="https://www.facebook.com/profile.php?id=61564331481907" target="_blank">
-            <img src="{{ url_for('static', filename='images/icons/ttt_logo.svg') }}" alt="Developer Logo" width="24px">
-        </a>
+        <p>&copy; 2025 Transit Tower. All rights reserved.</p>
+        <div class="ui-row">
+            <p>Designed & Developed by:</p>
+            <a href="https://www.facebook.com/profile.php?id=61564331481907" target="_blank">
+                The Tropical Techie
+            </a>
+        </div>
     </div>
 </footer>
 

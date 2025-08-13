@@ -55,13 +55,22 @@
 }
 
 /* Global Styles */
-body {
-    font-family: 'Open Sans', sans-serif;
+* {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    background-color: #f4f4f4;
-    color: #333;
+}
+
+/* HTML & Body Standard */
+html, body {
+    height: 100%;
+    background: var(--bg-color-accent);
+    color: var(--text-color);
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 footer {
@@ -420,15 +429,24 @@ h4 {
 }
 
 footer p, footer a {
+    color: black;
     font-size: var(--font-xs);
     line-height: 1.6;
+}
+
+footer a {
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+}
+
+footer a:hover {
     color: white;
 }
 
-footer h1, footer h2, footer h3 {
+footer h3 {
+    color: black;
     font-size: var(--font-s);
     line-height: 1.4;
-    color: white; /* Ensure footer headings are white */
 }
 
 
