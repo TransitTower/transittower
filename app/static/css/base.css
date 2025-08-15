@@ -51,24 +51,16 @@
     margin-right: var(--l-value);
 }
 
-main {
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-height: calc(80vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
-}
-
 /* Content Area */
 .content {
     overflow-x: hidden;
     overflow-y: auto;
     min-height: calc(80vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
 }
-
-/* Main Content Adjustment when Sidebar is Active */
 .content.active {
     margin-left: 250px; /* Match sidebar width */
     transition: margin-left var(--transition-fast); /* Smooth transition */
-}
+} /* Content Adjustment when Sidebar is Active */
 
 /* Sidebar */
 .sidebar {
@@ -84,19 +76,17 @@ main {
     background-color: var(--primary-dark); /* Sidebar background set to primary-dark */
     gap: var(--m-value);
 }
-
 .sidebar::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+    /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+    display: none;
 }
-
 .sidebar img {
+    /* Empty Comment to enable folding of this block */
     margin-bottom: var(--s-value);
 }
-
 .sidebar a {
     padding: var(--padding-s);
     padding-left: var(--m-value);
-    text-decoration: none;
     font-size: var(--font-m);
     color: var(--accent-color); /* Sidebar links use accent color */
     background: transparent;
@@ -104,16 +94,40 @@ main {
     transition: var(--transition-fast);
     margin-bottom: var(--s-value);
 }
-
 .sidebar a:hover {
     background-color: var(--primary-light); /* Lighter primary for hover background */
     color: var(--accent-dark-1); /* Darker accent for hover text */
 }
-
 .sidebar.active {
+    /* Empty Comment to enable folding of this block */
     width: 250px; /* Sidebar width when active */
 }
 
+/* Footer Standard */
+footer {
+    /* Empty Comment here to enable folding */
+    background-color: var(--primary-dark); /* Changed to primary-dark */
+}
+footer p, footer a {
+    color: black;
+    font-size: var(--font-xs);
+    line-height: 1.6;
+}
+footer a {
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+}
+footer a:hover {
+    /* Empty Comment here to enable folding */
+    color: white;
+}
+footer h3 {
+    color: black;
+    font-size: var(--font-s);
+    line-height: 1.4;
+}
+
+/* Footer Exclusives */
 .footer-end-row {
     margin-bottom: 0;
     display: flex;
@@ -126,7 +140,6 @@ main {
     background-color: rgba(0, 0, 0, 0.3);
     padding: var(--m-value);
 }
-
 .footer-social-button {
     padding: 0;
     margin: 0;
@@ -135,15 +148,15 @@ main {
     align-items: center;
     justify-content: center;
 }
-
 .footer-end-row p, .footer-end-row a {
     font-size: var(--font-xxs);
     color: white;
 }
-
 .footer-end-row .ui-row {
+    /* Empty Comment to enable folding of this block */
     gap: var(--xs-value);
 }
+
 
 /* Media query for narrow screens */
 @media screen and (max-width: 768px) {

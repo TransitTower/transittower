@@ -7,134 +7,22 @@ Transit Tower
 {% endblock %}
 
 {% block content %}
-<style>
-    /* Slider container: Fullscreen width and height */
-    .slider-container {
-        position: relative;
-        width: 100%;
-        height: 100vh; /* Full viewport height */
-        overflow: hidden;
-    }
-
-    .slider-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures the image covers the entire area without distortion */
-    }
-
-    /* Individual Slide */
-    .slide {
-        display: none;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-
-    /* Slider Dots */
-    .slider-dots {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        justify-content: center;
-    }
-
-    .dot {
-        height: 15px;
-        width: 15px;
-        margin: 0 5px;
-        background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.6s ease;
-        cursor: pointer;
-    }
-
-    .active {
-        background-color: white;
-    }
-
-    /* Fade effect for slides */
-    .fade {
-        animation: fade 1.5s;
-    }
-
-    @keyframes fade {
-        from { opacity: 0.4 }
-        to { opacity: 1 }
-    }
-
-    .intro-panel {
-        position: absolute;
-        width: 400px;
-        bottom: 64px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: var(--m-value);
-        padding: 0 32px 32px;
-        text-align: center;
-    }
-
-    .book-btn {
-        border-radius: var(--m-value);
-        /* Hard small shadow */
-        box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.6);
-        animation: grow-shrink 2s infinite;
-        font-weight: bold;
-    }
-
-    /* Keyframes for the reading animation */
-    @keyframes word-grow {
-        0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1); /* Slightly grow */
-        }
-    }
-
-    /* Styling for each word */
-    h2.word-animation {
-        display: inline-block;
-        animation: word-grow 1.5s infinite;
-    }
-
-    /* Media query for narrow screens */
-    @media screen and (max-width: 768px) {
-        .intro-panel {
-            padding: 0 16px 16px;
-        }
-    }
-</style>
-
 <!-- Image Slider -->
 <div class="slider-container">
-    <div class="slide fade">
+    <div class="slide fade-in">
         <img src="{{ url_for('static', filename='images/homepage/home_1.jpg') }}" alt="Slide 1">
     </div>
-    <div class="slide fade">
+    <div class="slide fade-in">
         <img src="{{ url_for('static', filename='images/homepage/home_2.jpg') }}" alt="Slide 2">
     </div>
-    <div class="slide fade">
+    <div class="slide fade-in">
         <img src="{{ url_for('static', filename='images/homepage/home_3.jpg') }}" alt="Slide 3">
     </div>
-    <div class="slide fade">
+    <div class="slide fade-in">
         <img src="{{ url_for('static', filename='images/homepage/home_4.jpg') }}" alt="Slide 4">
     </div>
-        <div class="slide fade">
+    <div class="slide fade-in">
         <img src="{{ url_for('static', filename='images/homepage/home_5.jpg') }}" alt="Slide 5">
-    </div>
-        <div class="slide fade">
-        <img src="{{ url_for('static', filename='images/homepage/home_6.jpg') }}" alt="Slide 6">
-    </div>
-        <div class="slide fade">
-        <img src="{{ url_for('static', filename='images/homepage/home_7.jpg') }}" alt="Slide 7">
     </div>
 </div>
 
@@ -157,20 +45,13 @@ Transit Tower
     <span class="dot" onclick="currentSlide(3)"></span>
     <span class="dot" onclick="currentSlide(4)"></span>
     <span class="dot" onclick="currentSlide(5)"></span>
-    <span class="dot" onclick="currentSlide(6)"></span>
-    <span class="dot" onclick="currentSlide(7)"></span>
 </div>
 
 <!-- Home page content -->
-<div class="responsive-container">
+<div class="responsive-container" style="margin-top: var(--l-value);">
     <div class="content-column">
-        <p style="text-align: center;">Welcome to Transit Tower</p>
-
-        <h2 class="word-animation" style="text-align: center;">
-            Your Home, Away From Home
-        </h2>
-
-
+        <h5 class="centered-text">Welcome to Transit Tower</h5>
+        <h2 class="centered-text">A Stay To Remember</h2>
         <p>Our guesthouse is a haven of tranquility nestled in the heart of the Maldives. With eight thoughtfully
             designed rooms, each offering a unique blend of comfort and style, we provide an intimate and personalized
             experience for every guest. </p>
@@ -179,7 +60,7 @@ Transit Tower
             designed to ensure a truly relaxing and memorable stay.</p>
     </div>
     <div class="content-column">
-        <img style="border-radius: 16px;"
+        <img class="content-image"
              src="{{ url_for('static', filename='images/homepage/tt_exterior.jpg') }}"
              alt="Transit Tower"
              width="100%">
@@ -190,16 +71,15 @@ Transit Tower
             choice for those seeking a memorable and enjoyable stay.</p>
     </div>
     <div class="content-column">
-        <h3 style="text-align: center;">Our Rooms</h3>
-        <button style="max-width: 200px; margin-bottom: 32px;
-        margin: 0 auto; margin-bottom: 32px; animation: grow-shrink 2s infinite;"
+        <h3 class="centered-text">Our Rooms</h3>
+        <button style="max-width: 200px; margin: 0 auto; margin-bottom: 32px;"
                 onclick="window.location.href='/rooms'">
             Explore For More
         </button>
-        <img style="border-radius: 16px;" src="{{ url_for('static', filename='images/rooms/rooms_5.jpg') }}"
-             alt="Double Deluxe Room"
-             width="100%">
-        <h4 style="text-align: center;">Options: Standard/Deluxe</h4>
+        <img class="content-image"
+             src="{{ url_for('static', filename='images/rooms/rooms_5.jpg') }}"
+             alt="Double Deluxe Room">
+        <h4>Options: Standard/Deluxe</h4>
         <p>Perfect for couples or solo travellers seeking comfort and style. Each room features spacious
             layout with modern interior, clean classy look and all essential amenities.</p>
     </div>

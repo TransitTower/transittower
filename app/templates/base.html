@@ -1,16 +1,15 @@
 <!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}Transit Tower{% endblock %}</title>
     <link rel="icon" href="{{ url_for('static', filename='images/icons/favicon.svg') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}"/>
 </head>
-
 <body>
 <!-- Header (Navbar) -->
 <div class="navbar ui-row">
@@ -73,7 +72,8 @@
     <div class="responsive-container">
         <!-- Footer intro section -->
         <div class="content-column">
-            <img src="{{ url_for('static', filename='images/icons/logo_alpha.png') }}" alt="Transit Tower Full Logo"
+            <img src="{{ url_for('static', filename='images/icons/logo_alpha.png') }}"
+                 alt="Transit Tower Full Logo"
                  width="120px">
             <p>Nestled in the vibrant heart of Maradhoo Feydhoo, Addu City, Maldives, our location offers stunning
                 vistas of lush island greenery, the scenic linking highway, and the endless expanse of the ocean
@@ -150,5 +150,4 @@
 </script>
 
 </body>
-
 </html>
