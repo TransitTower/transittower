@@ -52,7 +52,9 @@
     --padding-l: var(--l-value);      /* For Form Containers */
 
     /* 🧩 Other */
-    --transition-fast: 0.3s ease;
+    --transition-fast: 0.3s ease-in-out;
+    --transition-normal: 0.5s ease-in-out;
+    --transition-slow: 0.7s ease-in-out;
 }
 
 /* Global Styles */
@@ -64,7 +66,11 @@
 /* HTML & Body Standard */
 html, body {
     /* Empty comment to enable folding */
+    position: relative;
+    width: 100%;
     height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
 }
 body {
     font-family: 'Open Sans', sans-serif;
@@ -150,7 +156,6 @@ input, select {
     padding: var(--padding-s);
     border: 1px solid var(--primary-light); /* Input borders use primary-light */
     border-radius: var(--border-radius-elements);
-    width: 100%;
     box-sizing: border-box;
 }
 input:focus, select:focus {
@@ -166,21 +171,29 @@ input:focus, select:focus {
 .responsive-container {
     display: flex;
     flex-direction: row; /* As row for landscape */
+    width: 100%;
 }
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--m-value);
     justify-content: center;
+    width: 100%;
+}
+.grid-container img{
+    width: 100%;
+    height: 100:
+    object-fit: cover;
 }
 .ui-row {
     display: flex;
     flex-direction: row;
-    gap: var(--l-value);
+    gap: var(--m-value);
 }
 .ui-column {
     display: flex;
     flex-direction: column;
+    gap: var(--l-value);
 }
 .content-column {
     display: flex;
@@ -202,8 +215,8 @@ input:focus, select:focus {
     border-radius: var(--m-value);
 }
 .content-area {
-    margin-top: 66px;
-    padding: var(--xxl-value);
+    margin-top: var(--xl-value);
+    padding: var(--xl-value);
     box-sizing: border-box;
 }
 .card {
@@ -332,11 +345,7 @@ input:focus, select:focus {
 .toast.error { background-color: var(--danger-color); }
 .toast.info { background-color: var(--info-color); }
 
-/* Animations */
-.fade-in {
-    /* Empty Comment to enable folding of this block */
-    animation: fade-in var(--transition-fast);
-}
+/* Animation Setups */
 @keyframes slide-in {
     0% {
         transform: translateX(100%);
@@ -346,15 +355,15 @@ input:focus, select:focus {
         transform: translateX(0);
         opacity: 1;
     }
-}
+} /* make target slide in */
 @keyframes fade-in {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
+} /* make target fade into view */
 @keyframes fade-out {
     0% { opacity: 1; }
     100% { opacity: 0; }
-}
+} /* make target fade out of view */
 @keyframes grow-shrink {
     0% {
         transform: scale(1);
@@ -365,10 +374,51 @@ input:focus, select:focus {
     100% {
         transform: scale(1);
     }
-}
+} /* make target grow & shrink */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+} /* make target spin */
+@keyframes multicolor-text {
+    0% {
+        color: var(--text-color); /* Starting color */
+    }
+    30% {
+        color: var(--primary-color); /* First color change */
+    }
+    60% {
+        color: var(--accent-color); /* Second color change */
+    }
+    100% {
+        color: var(--text-color); /* Back to original color */
+    }
+} /* make target change fg color */
+@keyframes slide-up {
+    0% {
+        transform: translateY(0%);
+    }
+    25% {
+        transform: translateY(-25%);
+    }
+    50% {
+        transform: translateY(-50%);
+    }
+    75% {
+        transform: translateY(-75%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+} /* make target slide up */
+
+/* Animation Triggers */
+.fade-in {
+    /* Empty Comment to enable folding of this block */
+    animation: fade-in var(--transition-normal);
+}
+.multicolor-text {
+    /* Empty Comment to enable folding of this block */
+    animation: multicolor-text var(--transition-slow) infinite;
 }
 
 
@@ -377,13 +427,14 @@ input:focus, select:focus {
     .responsive-container {
         flex-direction: column;
         justify-content: center;
+        width: 100%;
     }
 
     .content-column {
-        padding: var(--xl-value);
-        width: 100%;
+        padding: var(--l-value) var(--xl-value);
         justify-content: center;
         box-sizing: border-box;
+        width: 100%;
     }
     .content-column p {
         /* Empty Comment to enable folding of this block */

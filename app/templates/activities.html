@@ -7,70 +7,9 @@ Activities
 {% endblock %}
 
 {% block content %}
-<style>
-    /* Exciting animation */
-    @keyframes exciting-animation {
-        0% {
-            color: #333; /* Starting color */
-        }
-        30% {
-            color: var(--primary-color); /* First color change */
-        }
-        60% {
-            color: var(--accent-color); /* Second color change */
-        }
-        100% {
-            color: #333; /* Back to original color */
-        }
-    }
-
-    h2.exciting {
-        animation: exciting-animation 1.5s ease-in-out infinite;
-        text-align: center;
-    }
-
-    /* Styling the dynamic word */
-    #dynamic-word {
-        display: inline-block;
-        overflow: hidden;
-        height: 1.2em; /* Adjust this based on the font size */
-        font-size: var(--xxl-value);
-        font-family: 'Montserrat', sans-serif;
-        color: var(--secondary-color);
-    }
-
-    #dynamic-word ul {
-        padding: 0;
-        margin: 0;
-        height: auto;
-        list-style: none;
-        top: 0;
-        animation: slide-up 6s infinite;
-    }
-
-    /* Animation for the list sliding up */
-    @keyframes slide-up {
-        0% {
-            transform: translateY(0%);
-        }
-        25% {
-            transform: translateY(-25%);
-        }
-        50% {
-            transform: translateY(-50%);
-        }
-        75% {
-            transform: translateY(-75%);
-        }
-        100% {
-            transform: translateY(0%);
-        }
-    }
-</style>
-
 <div class="content-area">
-    <h2 class="exciting">Exciting activities</h2>
-    <h1 style="text-align: center;">Make your stay...
+    <h2 class="centered-text multicolor-text">Exciting activities</h2>
+    <h1 class="centered-text">Make your stay...
         <span id="dynamic-word">
             <ul>
                 <li>enjoyable!</li>
@@ -84,105 +23,185 @@ Activities
         activities ensures there’s something for everyone seeking unforgettable moments on this paradise island.</p>
 
     <!-- List activities and provide details/photos -->
-    <div class="grid-container">
-        <!-- Excursion -->
+    <div class="grid-container" style="margin-top: var(--l-value);">
+        <!-- Excursion Trips / Island Hopping -->
         <div class="card">
             <div class="card-image">
-                <img src="{{ url_for('static', filename='images/activities/excursion.jpg') }}" alt="Excursion">
+                <img src="{{ url_for('static', filename='images/activities/excursion.jpg') }}" alt="Excursion Trips">
             </div>
-            <h3>Excursion / Island Hopping</h3>
-            <p>Immerse yourself in the local culture and enjoy the wonders of island hopping in the Maldives. Explore
-                the rich culture, heritage and history of the connecting chain of islands In Addu Atoll. Our neighbours
-                here offer a variety of traditional, local crafts and souvenirs, as well as delicious local cuisine. In
-                respect of how our neighbouring local Maldivians work and live together on the island, the required
-                dress code for the excursion is, at minimum, a short-sleeved t-shirt, knee-length shorts for women, and
-                shorts for men. A parent must accompany all children under the age of 16.</p>
+            <h3>Excursion Trips / Island Hopping</h3>
+            <p>Venture beyond Maradhoo to discover the interconnected islands of Addu Atoll. Each stop reveals a new
+                glimpse of Maldivian life — from traditional craft markets to peaceful village streets shaded by coconut
+                palms. Sample authentic snacks prepared by local families and learn about the unique customs of these
+                southern isles. Glide across calm lagoons between islands and take in endless ocean views. Modest dress
+                is required when visiting inhabited islands to respect the local community. These day trips offer the
+                perfect blend of culture, scenery, and genuine island hospitality.</p>
         </div>
-
+        <!-- Island Tour -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/island_tour.jpg') }}" alt="Island Tour">
+            </div>
+            <h3>Island Tour</h3>
+            <p>Experience Addu City like a local as you travel across its connected islands by road. Explore peaceful
+                neighborhoods, pristine beaches, and lively harbor areas that show a side of the Maldives most visitors
+                never see. Hear stories about how these islands have evolved from small fishing communities into a
+                thriving atoll city. Along the way, pause to meet residents, take photographs, and discover hidden cafés
+                serving Maldivian delicacies. This guided tour offers a perfect balance of scenic beauty and cultural
+                insight. Learn why Addu is often called the soul of the Maldives.</p>
+        </div>
         <!-- Snorkeling -->
         <div class="card">
             <div class="card-image">
-                <img src="{{ url_for('static', filename='images/activities/snorkeling.jpg') }}" alt="Snorkeling">
+                <img src="{{ url_for('static', filename='images/activities/snorkeling.jpg') }}" alt="Snorkelling">
             </div>
-            <h3>Snorkeling</h3>
-            <p>Our world-class reefs hosts a breathtaking variety of marine life. The reef is easily accessible, just a
-                few metres from the shore, and perfect for beginners to explore. It gently slopes to a depth of 20m and
-                is home to spectacular coral, harmless blacktip sharks, turtles, rays and many other species.
-
-                Wade into the lagoon with your mask, snorkel and fins and discover a world of mesmerising underwater
-                beauty.</p>
+            <h3>Snorkelling</h3>
+            <p>Step off the shore and into a vibrant underwater paradise just minutes from Transit Tower. Addu’s reefs
+                are alive with tropical fish, colorful coral gardens, and graceful sea turtles gliding through
+                crystal-clear waters. Gentle slopes make these sites ideal for beginners, while seasoned snorkelers will
+                enjoy exploring the deeper edges of the reef. Blacktip reef sharks, rays, and schools of reef fish often
+                pass by in the shallows. With such easy access, you can enjoy a refreshing dip in the lagoon any time of
+                day. It’s an unforgettable window into the rich marine life of the southern Maldives.</p>
         </div>
-
-        <!-- Day fishing -->
-        <div class="card">
-            <div class="card-image">
-                <img src="{{ url_for('static', filename='images/activities/day_fishing.jpg') }}" alt="Day Fishing">
-            </div>
-            <h3>Day Fishing</h3>
-            <p>Permit, Barracuda, Giant Trevally, Tuna, Groupers, Snappers, Billfish – you’ll find them all! Tropical
-                fish in the Maldives are numerous. You can reel in specimens of all shapes and colors, including plenty
-                you’ve never seen before! There are endless catches to make, but here are a few of the top targets that
-                bring anglers to the Maldives. The Maldives are among a few places in the world where you can catch GTs
-                year-round, both on the reefs and over the flats. So, targeting GTs here is a great opportunity to try
-                out the Maldives’ most popular fishing methods – jigging and popping. The same goes when fishing over
-                the flats, the only caveat being that the fish here are smaller, usually hitting between 10–15 pounds.
-                Fly fishers won’t mind, though, as the clear shallow waters here are perfect for sight casting.</p>
-        </div>
-
-        <!-- Night Fishing -->
-        <div class="card">
-            <div class="card-image">
-                <img src="{{ url_for('static', filename='images/activities/night_fishing.jpg') }}" alt="Night Fishing">
-            </div>
-            <h3>Night Fishing</h3>
-            <p>Experience fishing in the Maldivian style with hand lines and small fish as bait; an art practised by
-                many generations in the country. Includes a large spool, fishing line, and bait. The line is first
-                dropped to the water in a place where there are lots of fish, particularly near corals. Although there
-                is no off-season for this nighttime expedition, it would be advisable to go night fishing when there
-                are clear skies.</p>
-        </div>
-
         <!-- Diving -->
         <div class="card">
             <div class="card-image">
                 <img src="{{ url_for('static', filename='images/activities/diving.jpg') }}" alt="Diving">
             </div>
             <h3>Diving</h3>
-            <p>The Maldives is a low-lying nation with dreamy white sand beaches and excellent reefs with an abundance
-                of marine life. Scuba diving is done at a leisurely drift pace as the Indian monsoon current sweeps
-                along the island chains, moving nutrients and divers along. This rich water flows up along the walls,
-                feeding the soft coral clinging to the rock sides.
-
-                Inside the atoll lagoons, rock pinnacles – thila – rise up from the depths to scratch the water’s
-                surface. In the channels there are swim-through, caverns and overhangs festooned with colorful sponges,
-                invertebrates and gorgons. At cleaning stations, wrasse and shrimp service manta rays, with giant
-                turtle and whale shark sightings common.</p>
+            <p>Discover why Addu Atoll is a diver’s dream, home to coral pinnacles, vibrant walls, and unique WWII
+                wrecks. Drift dives here are calm yet full of life, with manta rays, whale sharks, and schools of
+                barracuda appearing throughout the year. Explore caverns, overhangs, and soft coral gardens swept by
+                nutrient-rich currents. Experienced instructors can guide both beginners and certified divers to
+                spectacular sites just minutes from shore. The southern Maldives are known for excellent visibility and
+                uncrowded reefs. Every dive reveals a new story beneath the waves.</p>
         </div>
-
-        <!-- Destination Wedding -->
+        <!-- Fishing Trip (Day & Night Combined) -->
         <div class="card">
             <div class="card-image">
-                <img src="{{ url_for('static', filename='images/activities/wedding.jpg') }}"
-                     alt="Wedding">
+                <img src="{{ url_for('static', filename='images/activities/day_fishing.jpg') }}" alt="Fishing Trip">
             </div>
-            <h3>Destination Wedding</h3>
-            <p>Say ‘I do’ with a traditional Maldivian wedding or a destination wedding function against a backdrop of
-                cerulean blues and the swell of the Indian Ocean. On a private island with friends and family, or just
-                the two of you under a white-canopied tent. Relax and beautify before a professional photoshoot on soft
-                white sands.</p>
+            <h3>Fishing Trip</h3>
+            <p>Join us for a Maldivian fishing adventure — by day or under a star-filled night sky. Cast lines for tuna,
+                snapper, and giant trevally, or try traditional hand-line fishing passed down through generations. Feel
+                the thrill of reeling in a big catch while surrounded by endless turquoise waters. Night fishing adds an
+                extra layer of excitement as lanterns light the deck and the sea comes alive with movement. Whether
+                you’re a seasoned angler or a first-timer, our crew ensures a fun and rewarding trip. Fresh catches can
+                even be prepared for you to enjoy back at the guesthouse.</p>
         </div>
-
-        <!-- Honeymoon -->
+        <!-- City Tour -->
         <div class="card">
             <div class="card-image">
-                <img src="{{ url_for('static', filename='images/activities/honeymoon.jpg') }}"
-                     alt="Transit Tower">
+                <img src="{{ url_for('static', filename='images/activities/city_tour.jpg') }}" alt="City Tour">
             </div>
-            <h3>Honeymoon</h3>
-            <p>Imagine a honeymoon where every moment is pure bliss. Our secluded island offers pristine beaches,
-                crystal-clear waters, and luxurious accommodations, creating the perfect setting for your romantic
-                getaway. Let us curate a personalized honeymoon experience just for you. Whether you prefer relaxation,
-                adventure, or a combination of both, we'll ensure your honeymoon is unforgettable.</p>
+            <h3>City Tour</h3>
+            <p>Take a closer look at Addu City’s rich history and vibrant community. Visit landmarks shaped by centuries
+                of trade and by the British Royal Navy during World War II. See Gan International Airport’s RAF
+                heritage, old military sites, and local neighborhoods that reveal the character of the southern
+                Maldives. Along the way, you’ll learn about the island’s transition from quiet fishing villages to an
+                emerging urban hub. Enjoy friendly encounters with locals and sample snacks unique to the atoll. This
+                tour provides cultural depth beyond the beaches.</p>
+        </div>
+        <!-- Picnic Day -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/icons/default_image.svg') }}" alt="Picnic Day">
+            </div>
+            <h3>Picnic Day</h3>
+            <p>Spend a relaxing day on an uninhabited island or secluded beach, far from the crowds. Swim in calm
+                lagoons, stroll soft white sands, and savor a picnic prepared with fresh local flavors. Our team
+                arranges everything — from shaded seating to cool drinks — so you can simply unwind. Watch the turquoise
+                waters sparkle under the Maldivian sun and enjoy total privacy. Whether you’re with family, friends, or
+                that special someone, it’s the perfect way to slow down and savor paradise. End the day with a peaceful
+                ride back as the sun dips low.</p>
+        </div>
+        <!-- Nature Park Tour -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/nature_park_tour.jpg') }}" alt="Nature Park Tour">
+            </div>
+            <h3>Nature Park Tour</h3>
+            <p>Explore Addu Nature Park, a lush sanctuary of mangroves, wetlands, and birdlife. Canoe through calm
+                waterways framed by red mangroves or ride a buggy along scenic trails. Walk elevated paths while
+                spotting herons, crabs, and vibrant tropical plants. Learn how this protected area preserves Addu’s
+                unique ecosystem and supports local conservation. The park is both peaceful and photogenic — perfect for
+                nature lovers of all ages. It’s a side of the Maldives few travelers ever experience.</p>
+        </div>
+        <!-- Southernmost Point -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/southern_most_point.jpg') }}" alt="Southern Most Point">
+            </div>
+            <h3>Southern Most Point</h3>
+            <p>Stand at the very edge of the Maldives, where the Indian Ocean stretches endlessly to the horizon. This
+                symbolic point marks the nation’s southern boundary and offers breathtaking photo opportunities. Feel
+                the refreshing ocean breeze as you reflect on the unique geography of these islands. Guides share
+                stories about Addu’s history and its role in Maldivian culture. It’s a perfect stop for travelers who
+                love panoramic views and rare landmarks. Capture a moment at the southern tip few ever visit.</p>
+        </div>
+        <!-- British Monument from WW2 -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/british_monument.jpg') }}"
+                     alt="British Monument from WW2">
+            </div>
+            <h3>British Monument</h3>
+            <p>Visit the historic British monument that commemorates Addu’s role during World War II. In 1942, the Royal
+                Navy and Air Force established bases here to protect vital shipping routes. Today, remnants of the era —
+                including cannons, bunkers, and airfields — tell the story of a small atoll with global significance.
+                Guides bring these sites to life with fascinating accounts of the past. This is a must-see for history
+                enthusiasts and curious travelers alike. Experience how Addu blends natural beauty with remarkable
+                heritage.</p>
+        </div>
+        <!-- Maldivian Night -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/maldivian_night.jpg') }}" alt="Maldivian Night">
+            </div>
+            <h3>Maldivian Night</h3>
+            <p>Immerse yourself in authentic island culture with an evening of traditional food and music. Savor dishes
+                made with fresh local ingredients, from rich coconut curries to sweet Addu delicacies. Watch live
+                performances featuring Maldivian drumming and dance under a canopy of stars. It’s an opportunity to meet
+                locals, share stories, and experience the warmth of southern hospitality. Perfect for couples, families,
+                and anyone who loves vibrant cultural celebrations. A truly unforgettable night in the Maldives.</p>
+        </div>
+        <!-- Bicycle Tour -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/bicycle_tour.jpg') }}" alt="Bicycle Tour">
+            </div>
+            <h3>Bicycle Tour</h3>
+            <p>Ride along scenic link roads connecting Addu’s islands, passing quiet villages, lagoons, and coconut
+                groves. Stop to explore beaches, taste fresh coconuts from roadside stalls, and take photos at hidden
+                gems. The flat terrain makes this a pleasant and easy adventure for all ages. Bicycles can be rented
+                directly from Transit Tower for a flexible self-guided ride. For those who prefer guidance, a local
+                escort can share insider tips and stories along the way. It’s a refreshing way to explore Addu at your
+                own pace.</p>
+        </div>
+        <!-- Dolphin Trip -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/dolphin_trip.jpg') }}" alt="Dolphin Trip">
+            </div>
+            <h3>Dolphin Trip</h3>
+            <p>Set out on a peaceful cruise as the sun begins to set over the Indian Ocean. Watch playful pods of
+                dolphins leap and race alongside the boat in their natural habitat. The calm waters of Addu Atoll are
+                perfect for spotting these friendly creatures year-round. Bring your camera — sunsets here are magical
+                and unforgettable. Our crew provides refreshments and shares interesting facts about Maldivian marine
+                life. It’s an experience that delights both adults and children alike.</p>
+        </div>
+        <!-- Special Lobster Dinner -->
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/activities/lobster_dinner.jpg') }}"
+                     alt="Special Lobster Dinner">
+            </div>
+            <h3>Special Lobster Dinner</h3>
+            <p>Indulge in a romantic evening featuring freshly caught Maldivian lobster prepared to perfection. Dine
+                under the stars with the soothing sound of waves in the background. Our chefs craft a memorable feast
+                using local ingredients and elegant presentation. Enjoy a private table setup — perfect for couples or
+                small groups seeking something extraordinary. Complement your meal with refreshing tropical drinks or
+                fine wine. It’s the ultimate way to celebrate a special occasion at Transit Tower.</p>
         </div>
     </div>
 </div>

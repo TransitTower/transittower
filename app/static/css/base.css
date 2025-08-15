@@ -13,7 +13,7 @@
 .navbar-right {
     display: flex;
     align-items: center;
-    gap: var(--xs-value);
+    gap: var(--s-value);
 }
 .navbar-left {
     width: 70%; /* Default for landscape mode */
@@ -24,7 +24,7 @@
     justify-content: flex-end;
 }
 .page-title {
-    font-size: var(--font-s);
+    font-size: var(--font-m);
     font-weight: var(--font-weight-medium);
 }
 .bar-button {
@@ -34,8 +34,8 @@
     background-color: transparent;
 }
 .bar-button img {
-    width: var(--xl-value);
-    height: var(--xl-value);
+    width: var(--l-value);
+    height: var(--l-value);
 }
 .bar-button:hover,
 .navbar a:hover {
@@ -53,8 +53,7 @@
 
 /* Content Area */
 .content {
-    overflow-x: hidden;
-    overflow-y: auto;
+    width: 100%;
     min-height: calc(80vh - var(--xxl-value)); /* Adjusted to use var for navbar height */
 }
 .content.active {
@@ -105,24 +104,25 @@
 
 /* Footer Standard */
 footer {
-    /* Empty Comment here to enable folding */
+    width: 100%;
     background-color: var(--primary-dark); /* Changed to primary-dark */
 }
 footer p, footer a {
-    color: black;
+    color: white;
     font-size: var(--font-xs);
     line-height: 1.6;
 }
 footer a {
+    color: var(--accent-light);
     text-decoration: none;
     font-weight: var(--font-weight-medium);
 }
 footer a:hover {
     /* Empty Comment here to enable folding */
-    color: white;
+    color: var(--accent-color);
 }
 footer h3 {
-    color: black;
+    color: white;
     font-size: var(--font-s);
     line-height: 1.4;
 }
@@ -137,6 +137,7 @@ footer h3 {
     align-items: center;
     gap: var(--m-value);
     justify-content: center;
+    margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.3);
     padding: var(--m-value);
 }

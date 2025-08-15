@@ -55,10 +55,29 @@
 }
 .book-btn {
     border-radius: var(--m-value);
-    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.6);
-    animation: grow-shrink 2s infinite;
+    box-shadow: var(--xs-value) var(--xs-value) var(--s-value) rgba(255, 255, 255, 0.6);
+    animation: grow-shrink var(--transition-slow) infinite;
     font-weight: bold;
 }
+
+/* Other Pages */
+#dynamic-word {
+    display: inline-block;
+    overflow: hidden;
+    font-size: var(--font-xl);
+    height: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-color);
+} /* dynamic words list */
+#dynamic-word ul {
+    padding: 0;
+    margin: 0;
+    height: auto;
+    list-style: none;
+    top: 0;
+    animation: slide-up 6s infinite;
+} /* dynamic words */
+
 
 /* Media query for narrow screens */
 @media screen and (max-width: 768px) {
